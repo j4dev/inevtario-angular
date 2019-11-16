@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +55,8 @@ export class AuthenticationService {
     await this.afAuth.auth.signOut();
     localStorage.removeItem('user');
   }
-
+  isAuth() {
+    // tslint:disable-next-line:no-shadowed-variable
+    return this.afAuth.authState.pipe(map(auth => auth));
+  }
 }

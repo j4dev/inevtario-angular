@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../shared/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { AuthenticationService } from '../../../shared/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private afAuth: AuthenticationService) { }
+  constructor(private afAuth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,21 +18,22 @@ export class LoginComponent implements OnInit {
   async loginGoogle() {
     try {
       const res = await this.afAuth.googleAuth();
-      console.log(res);
+      this.router.navigate(['/inicio']);
     } catch (error) {
       console.log(error);
     }
   }
 
-  async loginEmail() {
-    // tslint:disable-next-line:prefer-const
-    let email = document.querySelector<HTMLInputElement>('#InputEmail').value;
-    // tslint:disable-next-line:prefer-const
-    let pass = document.querySelector<HTMLInputElement>('#InputPassword').value;
+  async loginFacebook() {
     try {
-      const res = await this.afAuth.signIn(email, pass);
+      const res = await this.afAuth.facebookAuth();
+      this.router.navigate(['/inicio']);
     } catch (error) {
       console.log(error);
     }
+  }
+
+  logOut() {
+    this.afAuth.signOut();
   }
 }
