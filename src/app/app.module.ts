@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {  AngularMaterialModule } from './angular-material.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 import { LoginComponent } from './components/users/login/login.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
@@ -29,10 +30,11 @@ import { BodegasComponent } from './components/bodegas/bodegas.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
+  providers: [
+    AngularFireAuth
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

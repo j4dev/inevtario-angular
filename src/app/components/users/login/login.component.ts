@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
-import {MatIconRegistry} from '@angular/material/icon';
+import { AuthenticationService } from '../../../shared/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +8,30 @@ import {MatIconRegistry} from '@angular/material/icon';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) { 
-    iconRegistry.addSvgIcon(
-      'thumbs-up',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/examples/thumbup-icon.svg'));
-  }
+  constructor(private afAuth: AuthenticationService) { }
 
   ngOnInit() {
   }
 
+  // Login with Google
+  async loginGoogle() {
+    try {
+      const res = await this.afAuth.googleAuth();
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async loginEmail() {
+    // tslint:disable-next-line:prefer-const
+    let email = document.querySelector<HTMLInputElement>('#InputEmail').value;
+    // tslint:disable-next-line:prefer-const
+    let pass = document.querySelector<HTMLInputElement>('#InputPassword').value;
+    try {
+      const res = await this.afAuth.signIn(email, pass);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
