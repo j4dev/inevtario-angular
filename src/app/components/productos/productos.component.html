@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body">
         <h3>Productos</h3>
-        <form (submit)="addProduct(newNombre, newCodigo, newDescripcion, newPrecio, newCantidad)">
+        <form >
             <div class="form-group">
                 <input class="form-control" type="text" placeholder="Nombre" #newNombre>
             </div>
@@ -17,9 +17,12 @@
             <div class="form-group">
                 <input class="form-control" type="text" placeholder="Cantidad" #newCantidad>
             </div>
-            <button class="btn btn-primary">
+            <button class="btn btn-primary" (click)="addProduct(newNombre, newCodigo, newDescripcion, newPrecio, newCantidad)">
                 Guardar
             </button>
         </form>
     </div>
+</div>
+<div  *ngFor="let product of products">
+    {{products.nombre}} - {{products.codigo}} - {{products.descripcion}} - {{products.precio}} - {{products.cantidad}}
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BodegasService } from '../../services/bodegas.service';
+import { Bodegas } from 'src/app/models/bodegas';
 
 @Component({
   selector: 'app-bodegas',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bodegas.component.css']
 })
 export class BodegasComponent implements OnInit {
-
-  constructor() { }
+  bodegas: Bodegas[];
+  constructor(
+    public bodegasService: BodegasService
+  ) { }
 
   ngOnInit() {
+  }
+
+  addBodega(newNombre, newCodigo, newCiudad) {
+    this.bodegasService.addBodegas({
+      nombre: newNombre.value,
+      ciudad: newCiudad.value,
+      codigo: newCodigo.value
+    });
+    return false;
   }
 
 }

@@ -16,6 +16,8 @@ import { EditarPerfilComponent } from './components/users/editar-perfil/editar-p
 import { ProductosComponent } from './components/productos/productos.component';
 import { BodegasComponent } from './components/bodegas/bodegas.component';
 
+import { ProductsService } from './services/products.service';
+import { BodegasService } from './services/bodegas.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { BodegasComponent } from './components/bodegas/bodegas.component';
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
-    AngularFireAuth
+    AngularFireAuth,
+    ProductsService,
+    BodegasService
   ],
   bootstrap: [AppComponent]
 })

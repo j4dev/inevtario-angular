@@ -9,15 +9,22 @@ export class ProductsService {
   products: Products[];
 
   constructor() {
-    this.products = [];
   }
 
   getProducts() {
     return this.products;
   }
 
-  addProducts(products) {
-    this.products.push(products);
+  addProducts(product: Products) {
+    let products: Products[] = [];
+    if (localStorage.getItem('productos') === null) {
+      products.push(product);
+      localStorage.setItem('productos', JSON.stringify(products));
+    } else {
+      products = JSON.parse(localStorage.getItem('productos'));
+      products.push(product);
+      localStorage.setItem('productos', JSON.stringify(products));
+    }
   }
 
 }
