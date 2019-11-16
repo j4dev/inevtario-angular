@@ -1,1 +1,9 @@
-<p>perfil works!</p>
+<div class="card" style="width: 18rem;">
+        <img src={{users.photoURL}} class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{users.displayName}}</h5>
+            <p class="card-text"></p>
+            <a  class="btn btn-danger" (click)=" logOut()">Cerrar Sesión</a>
+            <a routerLink="../edit-perfil" class="btn btn-primary">Editar Perfil</a>
+        </div>
+</div>

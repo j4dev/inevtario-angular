@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../shared/authentication.service';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -8,10 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  userState: any;
   constructor(private afAuth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
+    this.getUser();
   }
 
   // Login with Google
@@ -32,8 +34,13 @@ export class LoginComponent implements OnInit {
       console.log(error);
     }
   }
-
-  logOut() {
-    this.afAuth.signOut();
+  getUser() {
+    this.afAuth.isAuth().subscribe(auth => {
+      if (auth) {
+        this.router.navigate(['/inicio']);
+      } else {
+        this.router.navigate(['']);
+      }
+    });
   }
 }

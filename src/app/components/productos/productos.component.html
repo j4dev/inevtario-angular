@@ -1,1 +1,25 @@
-<p>productos works!</p>
+<div class="card">
+    <div class="card-body">
+        <h3>Productos</h3>
+        <form (submit)="addProduct(newNombre, newCodigo, newDescripcion, newPrecio, newCantidad)">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Nombre" #newNombre>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Código" #newCodigo>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="" cols="30" rows="5" placeholder="Descripción" #newDescripcion></textarea>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Precio" #newPrecio>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Cantidad" #newCantidad>
+            </div>
+            <button class="btn btn-primary">
+                Guardar
+            </button>
+        </form>
+    </div>
+</div>
