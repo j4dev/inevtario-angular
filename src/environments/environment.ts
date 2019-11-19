@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyDKbPMnNs13kGHk2dI3-F5hhyddFR8T5NU',
-    authDomain: 'inventario-angular.firebaseapp.com',
-    databaseURL: 'https://inventario-angular.firebaseio.com',
-    projectId: 'inventario-angular',
-    storageBucket: 'inventario-angular.appspot.com',
-    messagingSenderId: '1026168987805',
-    appId: '1:1026168987805:web:f172b854a2ed9a26293474',
-    measurementId: 'G-M3DWRC3KNX'
+    apiKey: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    authDomain: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    databaseURL: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    projectId: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    storageBucket: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    messagingSenderId: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    appId: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    measurementId: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
   }
 
 };
